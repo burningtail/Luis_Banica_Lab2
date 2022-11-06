@@ -20,13 +20,13 @@ namespace Luis_Banica_Lab2.Pages.Publishers
         }
 
         public IList<Publisher> Publisher { get;set; } = default!;
-        public IList<Book> Book { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Book = await _context.Book
-                .Include(b => b.Publisher)
-                .ToListAsync();
+            if (_context.Publisher != null)
+            {
+                Publisher = await _context.Publisher.ToListAsync();
+            }
         }
     }
 }

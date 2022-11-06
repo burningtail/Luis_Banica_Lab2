@@ -23,10 +23,9 @@ namespace Luis_Banica_Lab2.Pages.Books
 
         public async Task OnGetAsync()
         {
-            if (_context.Book != null)
-            {
-                Book = await _context.Book.ToListAsync();
-            }
+            Book = await _context.Book
+  .Include(b => b.Publisher)
+  .ToListAsync();
         }
     }
 }

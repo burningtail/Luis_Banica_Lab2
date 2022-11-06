@@ -27,5 +27,9 @@ namespace Luis_Banica_Lab2.Models
         public int PublisherID { get; set; }
         public Publisher Publisher { get; set; }
 
+        public static implicit operator Book(List<Book> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
